@@ -1,0 +1,206 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+aside {
+    position: fixed;
+    left: 0px;
+    width: 300px;
+    background-color: #ffffff;
+    nav {
+        margin-top: 100px;
+        position: absolute;
+        left: 20px;
+        width: 290px;
+        border: 5px solid #03aeee;
+        padding: 5px;
+        padding-top: 10px;
+        border-top-left-radius: 38px;
+        border-bottom-left-radius: 38px;
+        background-color: #03aeee;
+        top: 70px;
+        height: 50px;
+    
+        .ico {
+            background-color: #ffffff;
+            border: 1px solid #ffffff;
+            border-radius: 50%;
+            width: 25px;
+        
+            
+        }
+        .employee_create_a {
+            color: #ffffff;
+            position: absolute;
+            padding-left: 5px;
+        }
+        a{
+            text-decoration: none;
+        }
+        .logout_a {
+        color: #ffffff;
+        margin-top: 230%;
+        position: absolute;
+        left: -5px;
+        width: 300px;
+        border: 5px solid #03aeee;
+        padding: 5px;
+        padding-top: 10px;
+        border-top-left-radius: 38px;
+        border-bottom-left-radius: 38px;
+        background-color: #03aeee;
+        top: 70px;
+        height: 50px;
+        }
+        .employee_list_a {
+            color: #ffffff;
+            margin-top: -150px;
+            position: absolute;
+            left: -5px;
+            width: 300px;
+            border: 5px solid #03aeee;
+            padding: 5px;
+            padding-top: 10px;
+            border-top-left-radius: 38px;
+            border-bottom-left-radius: 38px;
+            background-color: #03aeee;
+            top: 70px;
+            height: 50px;
+            }
+    }
+    
+}
+.kv {
+    width: 300px;
+    background-color: #fafafa;
+    position: fixed;
+    border: 1px solid #fafafa;
+}
+
+
+.CEmain {
+    position: relative;
+    left: 300px;
+    width: calc(100% - 300px);
+    background-color: #fafafa;
+    top: 65px;
+    border: 1px solid #fafafa;
+    height: 100vh;
+    box-shadow: 0px 1px 1px 0px #0000002c;
+
+    .header-row {
+        display: flex;
+        justify-content: space-between; 
+    }
+    
+    .header-row h5 {
+        margin: 0 10px; 
+    }
+    
+    .head-row {
+        border: 1px solid #d5f4ffb9;
+        padding: 15px 10px 15px 10px;
+        background-color: #d5f4ffb9;
+        border-radius: 10px;
+        margin: 10px;
+        box-shadow: 1px 1px 1px 1px #00000018;
+        position: relative;
+        top: 10px;
+    }
+    .row {
+        border: 1px solid #ffffff;
+        padding: 15px 10px 15px 10px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        margin: 10px;
+        box-shadow: 1px 1px 1px 1px #00000018;
+        position: relative;
+        top: 10px;
+    }
+
+    .create {
+        border: 1px solid #ffffff;
+        padding: 30px 10px 30px 10px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        margin: 10px;
+        box-shadow: 1px 1px 1px 1px #00000018;
+        position: relative;
+        top: 10px;
+    }
+
+    .form {
+        border: 1px solid #ffffff;
+        padding: 10px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        margin: 10px;
+        box-shadow: 1px 1px 1px 1px #00000018;
+        position: relative;
+        top: 20px;
+
+    }
+
+    .empform{
+        display: flex;
+        flex-wrap: wrap;
+        
+    }
+    .div {
+        box-sizing: border-box;
+        padding-bottom: 30px;
+        margin: 10px;
+        width: 25%;
+        flex-direction: column;
+        
+    }
+    .cr {
+        background-color: #03aeee;
+        height: 30px;
+        width: 100px;
+        border-radius: 5px;
+        color: #ffffff;
+        border: 1px solid rgba(0, 0, 0, 0.11);
+
+    }
+    .ca {
+        background-color: #ffffff;
+        height: 30px;
+        width: 100px;
+        border-radius: 5px;
+        color: #0000008f;
+        border: 1px solid rgba(0, 0, 0, 0.11);
+        position: relative;
+        left: 10px;
+
+    }
+    .in {
+        height: 40px;
+        width: 90%;
+        padding: 5px;
+        box-sizing: border-box;
+        background-color: #fafafa;
+        margin-top: 10px;
+        border-radius: 5px;
+        border: 1px solid rgba(0, 0, 0, 0.11);
+        
+    }
+    .in2 {
+        height: 40px;
+        width: 90%;
+        padding: 5px;
+        box-sizing: border-box;
+        background-color: #fafafa;
+        margin-top: 10px;
+        border-radius: 5px;
+        border: 1px solid rgba(0, 0, 0, 0.11);
+        opacity: .6;
+        
+    }
+    .b {
+        position: relative;
+        left: 10px;
+    }
+}
+
+
