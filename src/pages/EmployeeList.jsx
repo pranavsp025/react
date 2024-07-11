@@ -1,6 +1,17 @@
 import EmployeeRow from "./EmployeeRow";
 import { Link } from "react-router-dom";
 const Employees = () => {
+
+    const field=[
+        {name:"Employee Name",id:"Employee Name",date:"Employee Joining",role:"Role",status:"Status",experience:"Experience"},
+        {placeholder:"Employee ID",label:"Employee ID",id:"2"},
+        {placeholder:"Joining Date",label:"Joining Date",id:"3"},
+        {placeholder:"Choose Role",label:"Role"},
+        {placeholder:"Choose Status",label:"Status"},
+        {placeholder:"Experience",label:"Experience",id:"6"},
+        {placeholder:"Address",label:"Address",id:"7"}
+    ]
+
     return (
         <div className="CEmain">
             <section className="create header-row">
@@ -28,6 +39,7 @@ const Employees = () => {
                     <h5>Action</h5>
                 </div>
             </section>
+            
             <EmployeeRow/>
             <EmployeeRow/>
             <EmployeeRow/>

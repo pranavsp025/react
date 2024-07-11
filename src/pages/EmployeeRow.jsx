@@ -4,7 +4,7 @@ const EmployeeRow =()=> {
     <h5>Employee ID</h5>
     <h5>Employee Joining</h5>
     <h5>Role</h5>
-    <h5>Status</h5>
+    <h5 className="status_style">Status</h5>
     <h5>Experience</h5>
     <h5>Action</h5>
     {/* <table>
