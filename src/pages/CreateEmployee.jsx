@@ -57,7 +57,7 @@ const CreateEmployee = () => {
         {placeholder:"Employee ID",label:"Employee ID",id:"2",onChange:onEmployeeIdChange,value:employeeId},
         {placeholder:"Joining Date",label:"Joining Date",id:"3",onChange:onJoiningDateChange,value:joiningDate},
         {placeholder:"Choose Role",label:"Role",Component:CESelect,option0:"Choose Role",option1:"tester",option2:"devops",option3:"junior developer",option4:"senior developer",id:"4",onSelect:onRoleChange,value:role},
-        {placeholder:"Choose Status",label:"Status",Component:CESelect,option0:"Choose Status",option1:"active",option2:"inactive",id:"5",onSelect:onStatusChange,value:status},
+        {placeholder:"Choose Status",label:"Status",Component:CESelect,option0:"Choose Status",option1:"active",option2:"inactive",option3:"probation",id:"5",onSelect:onStatusChange,value:status},
         {placeholder:"Experience",label:"Experience",id:"6",onChange:onExperienceChange,value:experience},
         {placeholder:"Address",label:"Address",id:"7",onChange:onAddressChange,value:address}
     ]

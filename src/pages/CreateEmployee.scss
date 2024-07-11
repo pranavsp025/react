@@ -9,17 +9,11 @@ aside {
     background-color: #ffffff;
     nav {
         margin-top: 100px;
-        position: absolute;
+        position: fixed;
         left: 20px;
         width: 290px;
-        border: 5px solid #03aeee;
-        padding: 5px;
-        padding-top: 10px;
-        border-top-left-radius: 38px;
-        border-bottom-left-radius: 38px;
-        background-color: #03aeee;
-        top: 70px;
-        height: 50px;
+        border: 5px solid #03afee00;
+        top: 0px;
     
         .ico {
             background-color: #ffffff;
@@ -31,15 +25,25 @@ aside {
         }
         .employee_create_a {
             color: #ffffff;
-            position: absolute;
-            padding-left: 5px;
+        margin-top: -30%;
+        position: absolute;
+        left: -5px;
+        width: 300px;
+        border: 5px solid #03aeee;
+        padding: 5px;
+        padding-top: 10px;
+        border-top-left-radius: 38px;
+        border-bottom-left-radius: 38px;
+        background-color: #03aeee;
+        top: 70px;
+        height: 50px;
         }
         a{
             text-decoration: none;
         }
         .logout_a {
         color: #ffffff;
-        margin-top: 230%;
+        margin-top: 250%;
         position: absolute;
         left: -5px;
         width: 300px;
@@ -54,7 +58,7 @@ aside {
         }
         .employee_list_a {
             color: #ffffff;
-            margin-top: -150px;
+            margin-top: -10px;
             position: absolute;
             left: -5px;
             width: 300px;
@@ -67,6 +71,7 @@ aside {
             top: 70px;
             height: 50px;
             }
+        
     }
     
 }
@@ -96,7 +101,43 @@ aside {
     .header-row h5 {
         margin: 0 10px; 
     }
-    
+    .relative_button_div{
+        position: relative;
+    }
+    .header-row span{
+        position: fixed;
+        right: 4.7%;
+        border: 1px solid #7eddff4f;
+        background-color: #7eddff4f;
+        height: 50px;
+        top: 102px;
+        padding-left: 54px;
+        border-radius: 80px;
+        padding-top: 12px;
+        padding-right: 10px;
+    }
+    .header-row button{
+        position: fixed;
+        right: 12%;
+        width: 50px;
+        height: 50px;
+        top: 102px;
+        border-radius: 100%;
+        background-color: #03aeee;
+        border-color: #03aeee;
+    }
+    .header-row select{
+        position: fixed;
+        right: 20%;
+        height: 25px;
+        border-radius: 50px;
+        background-color: #7eddff4f;
+        text-align: center;
+    }
+    .header-row h4{
+        position: fixed;
+        right: 27.5%;
+    }
     .head-row {
         border: 1px solid #d5f4ffb9;
         padding: 15px 10px 15px 10px;

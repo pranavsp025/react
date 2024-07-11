@@ -3,8 +3,19 @@ import EmployeeRow from "./EmployeeRow";
 const Employees = () => {
     return (
         <div className="CEmain">
-            <section>
-                <h3 className="create">Employee List</h3>
+            <section className="create header-row">
+                <h3>Employee List</h3>
+                <h4>Filter By</h4>
+                <select name="" id=""><option value="">Employee Name</option>
+                <option value="">Employee ID</option>
+                <option value="">Employee Joining</option>
+                <option value="">Role</option>
+                <option value="">Experience</option></select>
+                <div className="relative_button_div">
+                <button className="createEmployee_button">+</button>
+                <span>create Employee</span>
+                </div>
+                
             </section>
             <section>
                 <div className="head-row header-row">
