@@ -103,40 +103,42 @@ aside {
     }
     .relative_button_div{
         position: relative;
+        text-decoration: none;
+        color: black;
     }
     .header-row span{
-        position: fixed;
-        right: 4.7%;
+        position: absolute;
+        right: 60px;
         border: 1px solid #7eddff4f;
         background-color: #7eddff4f;
         height: 50px;
-        top: 102px;
+        top: -15px;
+        width: 190px;
         padding-left: 54px;
         border-radius: 80px;
         padding-top: 12px;
-        padding-right: 10px;
     }
     .header-row button{
-        position: fixed;
-        right: 12%;
+        position: absolute;
+        right: 200px;
         width: 50px;
         height: 50px;
-        top: 102px;
+        top: -15px;
         border-radius: 100%;
         background-color: #03aeee;
         border-color: #03aeee;
     }
     .header-row select{
-        position: fixed;
-        right: 20%;
+        position: absolute;
+        right: 24%;
         height: 25px;
         border-radius: 50px;
         background-color: #7eddff4f;
         text-align: center;
     }
     .header-row h4{
-        position: fixed;
-        right: 27.5%;
+        position: absolute;
+        right: 33%;
     }
     .head-row {
         border: 1px solid #d5f4ffb9;

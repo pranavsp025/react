@@ -1,5 +1,5 @@
 import EmployeeRow from "./EmployeeRow";
-
+import { Link } from "react-router-dom";
 const Employees = () => {
     return (
         <div className="CEmain">
@@ -11,10 +11,10 @@ const Employees = () => {
                 <option value="">Employee Joining</option>
                 <option value="">Role</option>
                 <option value="">Experience</option></select>
-                <div className="relative_button_div">
+                <Link to='/employees' className="relative_button_div">
                 <button className="createEmployee_button">+</button>
                 <span>create Employee</span>
-                </div>
+                </Link>
                 
             </section>
             <section>
