@@ -30,6 +30,7 @@ const Employees = () => {
                     <option value="">Employee ID</option>
                     <option value="">Employee Joining</option>
                     <option value="">Role</option>
+                    <option value="">Status</option>
                     <option value="">Experience</option>
                 </select>
                 <Link to='/employees' className="relative_button_div">
