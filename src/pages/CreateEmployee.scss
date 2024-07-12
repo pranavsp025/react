@@ -94,10 +94,15 @@ aside {
     box-shadow: 0px 1px 1px 0px #0000002c;
 
     .header-row {
-        display: flex;
-        justify-content: space-between; 
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     }
     
+    .top-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        
+    }
     .header-row h5 {
         margin: 0 10px; 
     }
@@ -106,9 +111,9 @@ aside {
         text-decoration: none;
         color: black;
     }
-    .header-row span{
+    .top-row span{
         position: absolute;
-        right: 60px;
+        left: 510%;
         border: 1px solid #7eddff4f;
         background-color: #7eddff4f;
         height: 50px;
@@ -118,9 +123,9 @@ aside {
         border-radius: 80px;
         padding-top: 12px;
     }
-    .header-row button{
+    .top-row .createEmployee_button{
         position: absolute;
-        right: 200px;
+        left: 510%;
         width: 50px;
         height: 50px;
         top: -15px;
@@ -128,17 +133,19 @@ aside {
         background-color: #03aeee;
         border-color: #03aeee;
     }
-    .header-row select{
+    .top-row select{
         position: absolute;
-        right: 24%;
+        left: 70%;
         height: 25px;
+        top: 30px;
         border-radius: 50px;
         background-color: #7eddff4f;
         text-align: center;
     }
-    .header-row h4{
+    .top-row h4{
         position: absolute;
-        right: 33%;
+        right: 31%;
+        top: 30px;
     }
     .head-row {
         border: 1px solid #d5f4ffb9;
@@ -161,11 +168,25 @@ aside {
         top: 10px;
     }
     .status_style{
-        background-color: #3cbe00;
         padding: 0px;
         border-radius: 100px;
-        width: 50px;
+        width: 100px;
         text-align: center;
+    }
+    .delete{
+        color: red;
+    }
+    .edit{
+        color: #03aeee;
+        padding-left: 20%;
+    }
+    .CEplus{
+    font-size: 50px;
+    position: absolute;
+    top: -5px;
+    right: 9px;
+    color: #ffffff;
+    
     }
 
     .create {
@@ -177,6 +198,7 @@ aside {
         box-shadow: 1px 1px 1px 1px #00000018;
         position: relative;
         top: 10px;
+    
     }
 
     .form {

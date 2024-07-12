@@ -1,24 +1,26 @@
-const EmployeeRow =()=> {
-    return <div className="row header-row">
-    <h5>Employee Name</h5>
-    <h5>Employee ID</h5>
-    <h5>Employee Joining</h5>
-    <h5>Role</h5>
-    <h5 className="status_style">Status</h5>
-    <h5>Experience</h5>
-    <h5>Action</h5>
-    {/* <table>
-  <tr>
-    <td>Employee Name</td>
-    <td>Employee ID</td>
-    <td>Employee Joining</td>
-    <td>Role</td>
-    <td>Status</td>
-    <td>Experience</td>
-    <td>Action</td>
-  </tr>
-</table>  */}
-</div>
-}
+import React from 'react';
+import { FaRegTrashCan } from "react-icons/fa6";
+import { MdOutlineModeEdit } from "react-icons/md";
+import { Link } from 'react-router-dom';
+const EmployeeRow = ({ employee }) => {
+  let color='#d3f4be'
+  if(employee.status=='Probation') color='#f5ecb8'
+  else if(employee.status=='Inactive') color='#ffbfbf'
 
-export default EmployeeRow
+    return (
+        <div className="row header-row">
+            <div>{employee.name}</div>
+            <div>{employee.id}</div>
+            <div>{employee.joiningDate}</div>
+            <div>{employee.role}</div>
+            <div className='status_style' style={{backgroundColor:color}}>{employee.status}</div>
+            <div>{employee.experience}</div>
+            <div>
+              <Link className='delete'><FaRegTrashCan /></Link>
+              <Link to='/employees/edit' className='edit'><MdOutlineModeEdit /></Link>
+            </div>
+        </div>
+    );
+};
+
+export default EmployeeRow;

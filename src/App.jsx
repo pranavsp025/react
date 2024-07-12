@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider} from "react-router-dom"
 import NotFound from "./pages/NotFound"
 import HomeLayout from "./pages/HomeLayout"
 import EmployeeList from "./pages/EmployeeList"
+import EditEmployee from "./pages/EditEmployee"
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,8 @@ const router = createBrowserRouter([
       index:true,element:<CreateEmployee/>
     },{
       path:"list",index:true,element:<EmployeeList/>
+    },{
+      path:"edit",index:true,element:<EditEmployee/>
     }
   ]
   }
