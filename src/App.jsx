@@ -21,7 +21,7 @@ const router = createBrowserRouter([
     },{
       path:"list",index:true,element:<EmployeeList/>
     },{
-      path:"edit",index:true,element:<EditEmployee/>
+      path:"edit/:id",index:true,element:<EditEmployee/>
     }
   ]
   }
