@@ -18,6 +18,7 @@ const EmployeeRow = ({ employee }) => {
             <div>
               <Link className='delete'><FaRegTrashCan /></Link>
               <Link to={`/employees/edit/${employee.id}`} className='edit'><MdOutlineModeEdit /></Link>
+              
             </div>
         </div>
     );
