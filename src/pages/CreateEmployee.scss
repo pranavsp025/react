@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
+
 }
 aside {
     position: fixed;
@@ -258,6 +259,11 @@ aside {
         border: 1px solid rgba(0, 0, 0, 0.11);
         
     }
+    .in:focus{
+        outline:none;
+        border-color: #03aeee;
+    }
+    
     .in2 {
         height: 40px;
         width: 90%;
@@ -270,6 +276,12 @@ aside {
         opacity: .6;
         
     }
+    .in2:focus {
+        outline:none;
+        border-color: #03aeee;
+    }
+
+    
     .b {
         position: relative;
         left: 10px;

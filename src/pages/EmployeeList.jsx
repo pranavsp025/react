@@ -20,6 +20,7 @@ const Employees = () => {
         { name: "Frank Silver", id: "E013", joiningDate: "2022-09-03", role: "Tester", status: "Inactive", experience: "1 year" },
         
     ];
+    
 
     return (
         <div className="CEmain">

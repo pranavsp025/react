@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import CESelect from "../components/CESelect";
 import CEButton from "../components/CEButton";
 import CETextField from "../components/CETextField";
-
+import Employees from "./EmployeeList";
 const CEForm = (props) => {
     const [formData, setFormData] = useState({employeeName: '',employeeId: '',joiningDate: '',role: '',status: '',experience: '',address: ''});
     const userRef = useRef(null);
@@ -33,14 +33,18 @@ const CEForm = (props) => {
                 
             }));
         }
+    
+        
+        
     })    
 
     const field = [
         { name: "employeeName", placeholder: "Employee Name", label: "Employee Name", id: "1", ref: userRef },
         { name: "joiningDate", placeholder: "Joining Date", label: "Joining Date", id: "2" },
+        { name: "experience", placeholder: "Experience", label: "Experience", id: "5" },
+        { name: "department", placeholder: "Choose Department", label: "Department", Component: CESelect, options: ["Choose Department","HR", "Development", "Designer"], id: "3" },
         { name: "role", placeholder: "Choose Role", label: "Role", Component: CESelect, options: ["Choose Role", "tester", "devops", "junior developer", "senior developer"], id: "3" },
         { name: "status", placeholder: "Choose Status", label: "Status", Component: CESelect, options: ["Choose Status", "active", "inactive", "probation"], id: "4" },
-        { name: "experience", placeholder: "Experience", label: "Experience", id: "5" },
         { name: "address", placeholder: "Address", label: "Address", id: "6" },
         { name: "employeeId", placeholder: "Employee ID", label:!props.id? "":"Employee ID", id: "7" , disabled: !!props.id,hidden:!props.id},
 

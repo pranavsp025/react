@@ -7,7 +7,7 @@ const EditEmployee = () => {
         <section>
                 <h3 className="create">Edit Employee: {id}</h3>
             </section>
-            <CEForm id={id}/>
+            <CEForm id={id} />
         </div>
 }
 export default EditEmployee
