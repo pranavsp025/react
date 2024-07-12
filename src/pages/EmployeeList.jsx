@@ -37,7 +37,7 @@ const Employees = () => {
                 </select>
                 <Link to='/employees' className="relative_button_div">
                     <button className="createEmployee_button"><h1 className='CEplus'>+</h1></button>
-                    <span>Create Employee</span>
+                    <span className='CEspan'>Create Employee</span>
                 </Link>
             </section>
             <section>

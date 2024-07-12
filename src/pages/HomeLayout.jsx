@@ -3,6 +3,7 @@ import "./CreateEmployee.scss"
 import KvLogo from "../assets/kv-logo.png";
 import Aside from "./aside";
 import { useEffect } from "react";
+import DeleteConfirmation from "./DeleteConfirmation";
 const HomeLayout = () => {
     const token = localStorage.getItem('token')
     const navigate = useNavigate();
@@ -12,13 +13,11 @@ const HomeLayout = () => {
         }
     },[token,navigate]);
     return(
-
         <div className="page">
         <header >
             <img src={KvLogo} alt="" srcset="" class="kv"/>
         </header>
-
-        <Aside/>   
+        <Aside/>
         <div className="content"><Outlet/></div>
         </div>
     );

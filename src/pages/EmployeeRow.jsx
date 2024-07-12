@@ -7,8 +7,9 @@ const EmployeeRow = ({ employee }) => {
   if(employee.status=='Probation') color='#f5ecb8'
   else if(employee.status=='Inactive') color='#ffbfbf'
 
-    return (
-        <div className="row header-row">
+    return ( 
+        <Link to={`/employees/details/${employee.id}`} className='detailsFetch row header-row'>
+
             <div>{employee.name}</div>
             <div>{employee.id}</div>
             <div>{employee.joiningDate}</div>
@@ -20,7 +21,8 @@ const EmployeeRow = ({ employee }) => {
               <Link to={`/employees/edit/${employee.id}`} className='edit'><MdOutlineModeEdit /></Link>
               
             </div>
-        </div>
+        </Link>
+        
     );
 };
 

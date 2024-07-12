@@ -113,7 +113,7 @@ aside {
         text-decoration: none;
         color: black;
     }
-    .top-row span{
+    .top-row .CEspan{
         position: absolute;
         left: 510%;
         border: 1px solid #7eddff4f;
@@ -124,6 +124,19 @@ aside {
         padding-left: 54px;
         border-radius: 80px;
         padding-top: 12px;
+    }
+    .edit_span{
+        position: absolute;
+        left: 510%;
+        border: 1px solid #7eddff4f;
+        background-color: #7eddff4f;
+        height: 50px;
+        top: -15px;
+        width: 110px;
+        padding-left: 54px;
+        border-radius: 80px;
+        padding-top: 12px;
+        
     }
     .top-row .createEmployee_button{
         position: absolute;
@@ -286,6 +299,33 @@ aside {
         position: relative;
         left: 10px;
     }
+    .detailsFetch{
+        text-decoration: none;
+        color: #000000;
+    }
+    .details_page{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        font-size: 15px;
+        color: #646060;
+        
+    }
+    .details_padding_top{
+        padding-top: 30px;
+    }
+    .details_padding_bottom{
+        padding-bottom: 30px;
+    }
+    hr{
+        color: #ffffff8a;
+    }
+    .status_details{
+        height: 60%;
+        width: 80px;
+        text-align: center;
+    }
+    
 }
+
 
 

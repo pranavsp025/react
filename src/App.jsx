@@ -6,6 +6,8 @@ import NotFound from "./pages/NotFound"
 import HomeLayout from "./pages/HomeLayout"
 import EmployeeList from "./pages/EmployeeList"
 import EditEmployee from "./pages/EditEmployee"
+import EmployeeDetails from "./pages/EmployeeDetails"
+import DeleteConfirmation from "./pages/DeleteConfirmation"
 
 const router = createBrowserRouter([
   {
@@ -23,6 +25,10 @@ const router = createBrowserRouter([
     },{
       path:"edit/:id",index:true,element:<EditEmployee/>
     }
+    ,{
+      path:"details/:id",index:true,element:<EmployeeDetails/>
+    }
+
   ]
   }
 ]);
