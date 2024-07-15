@@ -19,7 +19,7 @@ const HomeLayout = () => {
     return(
         <div className="page">
         <header >
-            <img src={KvLogo} alt="" srcset="" class="kv"/>
+            <img src={KvLogo} alt="" srcset="" className="kv"/>
         </header>
         <Aside/>
         <div className="content"><Outlet context={{state,dispatch}}/></div>

@@ -13,7 +13,7 @@ const CEButton = ({onButtonClick,formData }) => {
 
         <div className="b">
             <Link to='/employees/list'><button className="cr" onClick={handleCreate}>Create</button></Link>
-            <button className="ca">Cancel</button>
+            <Link to='/employees/list'><button className="ca">Cancel</button></Link>
         </div>                  
     )
 }

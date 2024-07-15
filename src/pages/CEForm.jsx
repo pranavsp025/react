@@ -26,7 +26,7 @@ const CEForm = (props) => {
         }));
     };
     useEffect(()=>{
-        console.log("State",JSON.stringify(props.state))
+        // console.log("State",JSON.stringify(props.state))
         // console.log(formData )
 
         if(props.id){
@@ -37,7 +37,7 @@ const CEForm = (props) => {
             }));
         }
       
-    })    
+    },[])    
     const [createId, toggleAdd] = useState('') 
     const navigate = useNavigate()
 
@@ -55,7 +55,7 @@ const CEForm = (props) => {
         { name: "joiningDate", placeholder: "Joining Date", label: "Joining Date", id: "2" },
         { name: "experience", placeholder: "Experience", label: "Experience", id: "5" },
         { name: "department", placeholder: "Choose Department", label: "Department", Component: CESelect, options: ["Choose Department","HR", "Development", "Designer"], id: "3" },
-        { name: "role", placeholder: "Choose Role", label: "Role", Component: CESelect, options: ["Choose Role", "tester", "devops", "junior developer", "senior developer"], id: "3" },
+        { name: "role", placeholder: "Choose Role", label: "Role", Component: CESelect, options: ["Choose Role", "tester", "devops", "junior developer", "senior developer"], id: "8" },
         { name: "status", placeholder: "Choose Status", label: "Status", Component: CESelect, options: ["Choose Status", "Active", "Inactive", "Probation"], id: "4" },
         { name: "address", placeholder: "Address", label: "Address", id: "6" },
         { name: "id", placeholder: "Employee ID", label:!props.id? "":"Employee ID", id: "7" , disabled: !!props.id,hidden:!props.id},
