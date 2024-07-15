@@ -1,12 +1,30 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import EmployeeRow from "./EmployeeRow";
-import { Link } from "react-router-dom";
-import employees from "../components/EmployeeRecords.json"
+import { Link, useNavigate } from "react-router-dom";
+import { actionTypes } from '../useReducer';
 
-const Employees = () => {
+const Employees = ({state,dispatch}) => {
+    const [deleteId, toggleDelete] = useState('') 
+    const navigate = useNavigate()
+
+    // console.log("State",JSON.stringify(state))
+
+    const onButtonClick = (id) => {
+        dispatch({
+            type: actionTypes.DELETE_EMPLOYEE,
+            payload: id
+        });
+        toggleDelete('');
+    };
     
-    
-    
+    const onCancelClick = () => toggleDelete('');
+
+    const onRowClick = (id) => navigate(`/employees/details/${id}`);
+
+    const onEditClick = (id, event) => {
+        event.stopPropagation();
+        navigate(`/employees/edit/${id}`);
+    }
 
     return (
         <div className="CEmain">
@@ -37,8 +55,14 @@ const Employees = () => {
                     <h5>Action</h5>
                 </div>
             </section>
-            {employees.map((employee, index) => (
-                <EmployeeRow key={index} employee={employee} />
+            {state.employees.map((employee, index) => (
+                <EmployeeRow
+                    key={index}
+                    employee={employee}
+                    onButtonClick={onButtonClick}
+                    onEditClick={onEditClick}
+                    onRowClick={onRowClick}
+                />
             ))}
         </div>
     );

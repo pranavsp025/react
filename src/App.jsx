@@ -7,12 +7,14 @@ import HomeLayout from "./pages/HomeLayout"
 import EmployeeList from "./pages/EmployeeList"
 import EditEmployee from "./pages/EditEmployee"
 import EmployeeDetails from "./pages/EmployeeDetails"
+import employeesRecord from "./components/EmployeeRecords.json"
+import reducer from "./useReducer.js"
+
 
 
 
 const App = () => {
-  const [stateValue,setState] = useState(false)
-  // const [state,,dispatch] = useReducer(reducer,{employees:employeeList});
+  const [state,dispatch] = useReducer(reducer,{employees:employeesRecord});
   const router = createBrowserRouter([
     {
       path:"/",
@@ -25,7 +27,7 @@ const App = () => {
       children:[{
         index:true,element:<CreateEmployee/>
       },{
-        path:"list",index:true,element:<EmployeeList/>
+        path:"list",index:true,element:<EmployeeList state={state} dispatch={dispatch}/>
       },{
         path:"edit/:id",index:true,element:<EditEmployee/>
       }
@@ -37,16 +39,6 @@ const App = () => {
     }
   ]);
 
-  const handleLogin=(e)=>{
-    e.preventDefault()
-    setState(true)
-  }
-
-  // return <main>
-  //   {
-  //   stateValue? <CreateEmployee/>:<Login handleSubmit={handleLogin}/>
-  //   }
-  // </main>
 
   return(
     <div className="App">

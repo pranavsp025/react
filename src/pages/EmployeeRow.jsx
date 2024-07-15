@@ -1,38 +1,13 @@
 import React from 'react';
 import { FaRegTrashCan } from "react-icons/fa6";
-import { MdOutlineModeEdit } from "react-icons/md";
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import Popup from 'reactjs-popup';
+import { MdOutlineModeEdit } from "react-icons/md";
+import DeletePopup from './DeletePopup';
 import 'reactjs-popup/dist/index.css';
 
-function DeletePopup() {
-  const [open, setOpen] = useState(false);
-  const closeModal = () => setOpen(false);
-
-  const handleDelete = () => {
-    console.log("Item deleted");
-    closeModal();
-  };
-
-  return (
-    <div>
-      <Link onClick={() => setOpen(true)} className='delete'><FaRegTrashCan /> </Link>
-      <Popup open={open} closeOnDocumentClick onClose={closeModal} position="right center">
-        <div className='DeleteBox'>
-          <h2 className='head'>Are you sure ?</h2>
-          <button onClick={closeModal} className='close'>X</button>
-          <h3 className='description'>Do you really want to delete employee ?</h3>
-          <button onClick={handleDelete} className='confirm_button'>Confirm</button>
-          <button onClick={closeModal} className='cancel_button'>Cancel</button>
-        </div>
-      </Popup>
-    </div>
-  );
-}
 
 
-const EmployeeRow = ({ employee }) => {
+const EmployeeRow = ({ employee ,onButtonClick}) => {
   let color='#d3f4be'
   if(employee.status=='Probation') color='#f5ecb8'
   else if(employee.status=='Inactive') color='#ffbfbf'
@@ -48,7 +23,7 @@ const EmployeeRow = ({ employee }) => {
             <div>{employee.experience}</div>
             <div>
               
-              <Link ><DeletePopup/></Link>
+              <Link ><DeletePopup onButtonClick={onButtonClick} employeeId={employee.id} /></Link>
               <Link to={`/employees/edit/${employee.id}`} className='edit'><MdOutlineModeEdit /></Link>
               
             </div>
@@ -58,3 +33,8 @@ const EmployeeRow = ({ employee }) => {
 };
 
 export default EmployeeRow;
+
+
+
+
+
