@@ -1,13 +1,15 @@
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import employees from "../components/EmployeeRecords.json"
+import { useOutletContext } from "react-router-dom";
 
 const EmployeeDetails = () => {
    
     
-    
+    const {state ,dispatch}=useOutletContext();
+
     const { id } = useParams();
-    const employee = employees.find((e) => e.id === id);
+    const employee = state.employees.find((e) => e.id === id);
     let color='#d3f4be'
     if(employee.status=='Probation') color='#f5ecb8'
     else if(employee.status=='Inactive') color='#ffbfbf'

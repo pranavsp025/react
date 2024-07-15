@@ -11,33 +11,32 @@ import employeesRecord from "./components/EmployeeRecords.json"
 import reducer from "./useReducer.js"
 
 
+const router = createBrowserRouter([
+  {
+    path:"/",
+    element:<Login/>,
+    errorElement:<NotFound/>,
+  },
+  {
+    path:"/employees",
+    element:<HomeLayout/>,
+    children:[{
+      index:true,element:<CreateEmployee/>
+    },{
+      path:"list",index:true,element:<EmployeeList/>
+    },{
+      path:"edit/:id",index:true,element:<EditEmployee/>
+    }
+    ,{
+      path:"details/:id",index:true,element:<EmployeeDetails/>
+    }
 
+  ]
+  }
+]);
 
 const App = () => {
-  const [state,dispatch] = useReducer(reducer,{employees:employeesRecord});
-  const router = createBrowserRouter([
-    {
-      path:"/",
-      element:<Login/>,
-      errorElement:<NotFound/>,
-    },
-    {
-      path:"/employees",
-      element:<HomeLayout/>,
-      children:[{
-        index:true,element:<CreateEmployee/>
-      },{
-        path:"list",index:true,element:<EmployeeList state={state} dispatch={dispatch}/>
-      },{
-        path:"edit/:id",index:true,element:<EditEmployee/>
-      }
-      ,{
-        path:"details/:id",index:true,element:<EmployeeDetails/>
-      }
   
-    ]
-    }
-  ]);
 
 
   return(

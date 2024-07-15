@@ -1,11 +1,18 @@
-const CEButton = () => {
+import { v4 as uuidv4 } from 'uuid';
+import { Link } from 'react-router-dom';
+const CEButton = ({onButtonClick,formData }) => {
+    const handleCreate = () => {
+        formData.id=uuidv4().slice(0,10)
+        onButtonClick(formData );
 
+        
+      };
     
 
     return(
 
         <div className="b">
-            <button className="cr">Create</button>
+            <Link to='/employees/list'><button className="cr" onClick={handleCreate}>Create</button></Link>
             <button className="ca">Cancel</button>
         </div>                  
     )

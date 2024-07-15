@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import EmployeeRow from "./EmployeeRow";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useOutletContext } from "react-router-dom";
 import { actionTypes } from '../useReducer';
 
-const Employees = ({state,dispatch}) => {
+const Employees = () => {
     const [deleteId, toggleDelete] = useState('') 
     const navigate = useNavigate()
-
+    const {state ,dispatch}=useOutletContext();
     // console.log("State",JSON.stringify(state))
 
     const onButtonClick = (id) => {
@@ -17,14 +17,6 @@ const Employees = ({state,dispatch}) => {
         toggleDelete('');
     };
     
-    const onCancelClick = () => toggleDelete('');
-
-    const onRowClick = (id) => navigate(`/employees/details/${id}`);
-
-    const onEditClick = (id, event) => {
-        event.stopPropagation();
-        navigate(`/employees/edit/${id}`);
-    }
 
     return (
         <div className="CEmain">
@@ -56,14 +48,7 @@ const Employees = ({state,dispatch}) => {
                 </div>
             </section>
             {state.employees.map((employee, index) => (
-                <EmployeeRow
-                    key={index}
-                    employee={employee}
-                    onButtonClick={onButtonClick}
-                    onEditClick={onEditClick}
-                    onRowClick={onRowClick}
-                />
-            ))}
+                <EmployeeRow key={index} employee={employee} onButtonClick={onButtonClick}/>))}
         </div>
     );
 };

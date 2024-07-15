@@ -9,7 +9,7 @@ const reducer = (state,action)=> {
         case actionTypes.ADD_EMPLOYEE:
             return{
                 ...state,
-                employees:[state.employees,action.payload]
+                employees:[...state.employees, action.payload]
             };
         case actionTypes.DELETE_EMPLOYEE:
             const employees = [...state.employees];
