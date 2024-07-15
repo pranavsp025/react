@@ -3,7 +3,6 @@ import "./CreateEmployee.scss"
 import KvLogo from "../assets/kv-logo.png";
 import Aside from "./aside";
 import { useEffect } from "react";
-import DeleteConfirmation from "./DeleteConfirmation";
 const HomeLayout = () => {
     const token = localStorage.getItem('token')
     const navigate = useNavigate();

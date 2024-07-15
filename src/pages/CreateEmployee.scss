@@ -189,11 +189,18 @@ aside {
         text-align: center;
     }
     .delete{
+        cursor: context-menu;
         color: red;
+        padding: 15px;
     }
     .edit{
+        cursor: context-menu;
         color: #03aeee;
-        padding-left: 20%;
+        margin-left: 5%;
+        position: absolute;
+        top: 1%;
+        padding: 15px 10px 10px 10px;
+
     }
     .CEplus{
     font-size: 50px;
@@ -323,9 +330,60 @@ aside {
         height: 60%;
         width: 80px;
         text-align: center;
+        border-radius: 30px;
+    }
+    
+    
+}
+.DeleteBox{
+    box-sizing: border-box;
+    width: 300px;
+    text-align: center;
+    .head{
+        margin-top: 20px;
+    }
+    .close{
+        cursor: pointer;
+        position: absolute;
+        left: 280px;
+        top: 10px;
+        width: 20px;
+        background-color: #ffffff;
+        border: 1px solid white;
+        font-size: larger;
+    }
+    .description{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-weight: 100;
+    }
+    .confirm_button {
+        cursor: pointer;
+        height: 30px;
+        background-color: #03aeee;
+        border: 1px solid #03aeee;
+        width: 80px;
+        color: #ffffff;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+    .cancel_button{
+        cursor: pointer;
+        margin-left: 10px;
+        height: 30px;
+        background-color: #ffffff;
+        border: 1px solid #999999;
+        width: 80px;
+        color: #000000;
+        border-radius: 5px;
+        margin-bottom: 20px;
+
     }
     
 }
-
+.popup-content{
+    max-width: max-content;
+    
+}
 
 
