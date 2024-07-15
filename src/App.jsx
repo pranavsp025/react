@@ -1,6 +1,6 @@
 import Login from "./pages/Login"
 import CreateEmployee from "./pages/CreateEmployee"
-import { useState } from "react"
+import { useState,useReducer } from "react"
 import { createBrowserRouter, RouterProvider} from "react-router-dom"
 import NotFound from "./pages/NotFound"
 import HomeLayout from "./pages/HomeLayout"
@@ -8,32 +8,34 @@ import EmployeeList from "./pages/EmployeeList"
 import EditEmployee from "./pages/EditEmployee"
 import EmployeeDetails from "./pages/EmployeeDetails"
 
-const router = createBrowserRouter([
-  {
-    path:"/",
-    element:<Login/>,
-    errorElement:<NotFound/>,
-  },
-  {
-    path:"/employees",
-    element:<HomeLayout/>,
-    children:[{
-      index:true,element:<CreateEmployee/>
-    },{
-      path:"list",index:true,element:<EmployeeList/>
-    },{
-      path:"edit/:id",index:true,element:<EditEmployee/>
-    }
-    ,{
-      path:"details/:id",index:true,element:<EmployeeDetails/>
-    }
 
-  ]
-  }
-]);
 
 const App = () => {
   const [stateValue,setState] = useState(false)
+  // const [state,,dispatch] = useReducer(reducer,{employees:employeeList});
+  const router = createBrowserRouter([
+    {
+      path:"/",
+      element:<Login/>,
+      errorElement:<NotFound/>,
+    },
+    {
+      path:"/employees",
+      element:<HomeLayout/>,
+      children:[{
+        index:true,element:<CreateEmployee/>
+      },{
+        path:"list",index:true,element:<EmployeeList/>
+      },{
+        path:"edit/:id",index:true,element:<EditEmployee/>
+      }
+      ,{
+        path:"details/:id",index:true,element:<EmployeeDetails/>
+      }
+  
+    ]
+    }
+  ]);
 
   const handleLogin=(e)=>{
     e.preventDefault()

@@ -3,6 +3,7 @@
     font-family: Arial, Helvetica, sans-serif;
 
 }
+
 aside {
     position: fixed;
     left: 0px;
@@ -99,6 +100,10 @@ aside {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     }
+    .header-row:hover {
+        box-shadow: 1px 1px 1px 1px #6eb9f7;
+        transition-duration: 500ms;
+    }
     
     .top-row {
         display: grid;
@@ -125,6 +130,10 @@ aside {
         border-radius: 80px;
         padding-top: 12px;
     }
+    .CEspan:hover{
+        box-shadow: 1px 1px 1px 1px #03aeee;
+
+    }
     .edit_span{
         position: absolute;
         left: 510%;
@@ -138,6 +147,9 @@ aside {
         padding-top: 12px;
         
     }
+    .edit_span:hover{
+        box-shadow: 1px 1px 1px 1px #03aeee;
+    }
     .top-row .createEmployee_button{
         position: absolute;
         left: 510%;
@@ -148,6 +160,7 @@ aside {
         background-color: #03aeee;
         border-color: #03aeee;
     }
+    
     .top-row select{
         position: absolute;
         left: 70%;
@@ -327,8 +340,8 @@ aside {
         color: #ffffff8a;
     }
     .status_details{
-        height: 60%;
-        width: 80px;
+        padding-left: 10px;
+        padding-right: 10px;
         text-align: center;
         border-radius: 30px;
     }
