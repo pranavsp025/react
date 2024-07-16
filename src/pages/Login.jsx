@@ -12,12 +12,19 @@ const Login = ({handleSubmit}) => {
     const [password,setPassword]=useState('')
     const [isError,setError]=useState(false)
     const userRef=useRef(null)
-    const [login] = useLoginMutation();
+    const [login, {isSuccess , data}] = useLoginMutation();
     const navigate = useNavigate()
 
     useEffect(()=>{
         focusInput()
     },[])
+    useEffect(()=>{
+        if(isSuccess){
+            console.log(data)
+            localStorage.setItem("token",data.data.token);
+            navigate('/employees');
+        }
+    },[isSuccess,data])
     
     const focusInput = () => {
         if (userRef.current) {
@@ -27,9 +34,7 @@ const Login = ({handleSubmit}) => {
 
       const onLogin = async () => {
         const response = await login ({email:userName, password:password});
-        localStorage.setItem("token",response.data.data.token);
-        navigate('/employees')
-
+        
       }
 
      const onChange = (e) => {
