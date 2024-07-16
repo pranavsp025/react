@@ -9,6 +9,8 @@ import EditEmployee from "./pages/EditEmployee"
 import EmployeeDetails from "./pages/EmployeeDetails"
 import employeesRecord from "./components/EmployeeRecords.json"
 import reducer from "./useReducer.js"
+import {Provider} from 'react-redux'
+import store from "./store/store.js"
 
 
 const router = createBrowserRouter([
@@ -40,9 +42,11 @@ const App = () => {
 
 
   return(
+    <Provider store={store}>
     <div className="App">
       <RouterProvider router = {router}/>
     </div>
+    </Provider>
   )
 }
 

@@ -4,22 +4,30 @@ import CESelect from "../components/CESelect";
 import CEButton from "../components/CEButton";
 import CETextField from "../components/CETextField";
 import { actionTypes } from "../useReducer";
+import { useDispatch, useSelector } from "react-redux";
+import { addEmployee, updateEmployee } from "../store/employeeReducer";
+
+
 
 const CEForm = (props) => {
     const [formData, setFormData] = useState({ name: '', id: '', joiningDate: '', role: '', status: '', experience: '', address: '' });
     const userRef = useRef(null);
-    const { state, dispatch } = useOutletContext();
+    // const { state, dispatch } = useOutletContext();
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const employees = useSelector((state)=> state.employees.employees)
 
+
+    
     useEffect(() => {
         focusInput();
         if (props.id) {
-            const employee = state.employees.find((e) => e.id === props.id);
+            const employee = employees.find((e) => e.id === props.id);
             if (employee) {
                 setFormData(employee);
             }
         }
-    }, [props.id, state.employees]);
+    }, []);
 
     const focusInput = () => {
         if (userRef.current) {
@@ -37,16 +45,9 @@ const CEForm = (props) => {
 
     const onButtonClick = () => {
         if (props.id) {
-            dispatch({
-                type: actionTypes.UPDATE_EMPLOYEE,
-                payload: formData
-            });
+            dispatch(updateEmployee(formData))
         } else {
-            dispatch({
-                type: actionTypes.ADD_EMPLOYEE,
-                payload: formData
-                
-            });
+            dispatch(addEmployee(formData))
 
         }
         navigate('/');
