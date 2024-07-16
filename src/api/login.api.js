@@ -1,15 +1,15 @@
-// import apiWithTag from "./employeeApi";
+import apiWithTag from "./employeeApi";
 
-// export const loginApi = apiWithTag.injectEndpoints({
-//     endpoints:(builder)=>({
-//         login: builder.mutation({
-//             query:(payload)=>({
-//                 url:"/employee/login",
-//                 method:"POST",
-//                 body: payload
-//             })
-//         })
-//     })
-// })
+export const loginApi = apiWithTag.injectEndpoints({
+    endpoints:(builder)=>({
+        login: builder.mutation({
+            query:(payload)=>({
+                url:"/employee/login",
+                method:"POST",
+                body: payload
+            }),
+        }),
+    }),
+});
 
-// export const { useLoginMutation } =loginApi;
+export const { useLoginMutation } =loginApi;

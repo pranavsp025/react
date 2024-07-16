@@ -1,7 +1,7 @@
 const Button = ({text,handleSubmit}) => {
     return(
 
-        <button className="loginbutton" type="submit" onClick={()=>{localStorage.setItem('token',true)}}>{text}</button>
+        <button className="loginbutton" type="submit" >{text}</button>
     )
 }
 export default Button;

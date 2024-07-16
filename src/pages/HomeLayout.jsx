@@ -12,7 +12,7 @@ const HomeLayout = () => {
     const [state,dispatch] = useReducer(reducer,{employees:employeesRecord});
 
     useEffect(()=>{
-        if(!token || token!=='true'){
+        if(token=='false'){
             navigate('/');
         }
     },[token,navigate]);
