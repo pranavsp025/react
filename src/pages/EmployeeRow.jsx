@@ -12,12 +12,15 @@ const EmployeeRow = ({ employee ,onButtonClick}) => {
   if(employee.status=='Probation') color='#f5ecb8'
   else if(employee.status=='Inactive') color='#ffbfbf'
 
+  
     return ( 
         <Link to={`/employees/details/${employee.id}`} className='detailsFetch row header-row'>
 
             <div>{employee.name}</div>
             <div>{employee.id}</div>
+            {/* <div>{employee.createdAt.slice(0,10)}</div> */}
             <div>{employee.joiningDate}</div>
+
             <div>{employee.role}</div>
             <div className='status_style' style={{backgroundColor:color}}>{employee.status}</div>
             <div>{employee.experience}</div>

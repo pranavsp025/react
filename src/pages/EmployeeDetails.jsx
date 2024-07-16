@@ -9,7 +9,7 @@ const EmployeeDetails = () => {
     
     // const {state ,dispatch}=useOutletContext();
     const employees = useSelector((state)=> state.employees.employees)
-
+    
     const { id } = useParams();
     const employee = employees.find((e) => e.id === id);
     let color='#d3f4be'

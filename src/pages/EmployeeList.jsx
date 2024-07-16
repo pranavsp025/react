@@ -4,6 +4,7 @@ import { Link, useNavigate, useOutletContext } from "react-router-dom";
 import { actionTypes } from '../useReducer';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteEmployee } from '../store/employeeReducer';
+import { useGetEmployeeListQuery } from '../api/employee.api';
 
 const Employees = () => {
     const [deleteId, toggleDelete] = useState('') 
@@ -12,18 +13,33 @@ const Employees = () => {
     const [filter, setFilter] = useState('');
     const [filteredEmployees, setFilteredEmployees] = useState([]);
     // console.log("State",JSON.stringify(state))
-    const employees = useSelector((state)=> state.employees.employees)
+    // const employees = useSelector((state)=> state.employees.employees)
+    const [list,setList] = useState([])
     const dispatch = useDispatch();
+    const { data = [] } = useGetEmployeeListQuery();
 
+    useEffect(()=>{
+        const employees = data.map((employee)=>({
+        ...employee,
+        joiningDate: new Date(employee.createdAt).toLocaleDateString("en-GB",{
+            day:"numeric",
+            month:"short",
+            year:"numeric",
+        })
+    }))
+    setList(employees)
+    },[data])
+    
+    
 
     const onButtonClick = (id) => {
         dispatch(deleteEmployee(id))
         toggleDelete('');
     };
     
-    useEffect(()=>{
-        console.log({employees})
-    },[employees])
+    // useEffect(()=>{
+    //     console.log({employees})
+    // },[employees])
 
     return (
         <div className="CEmain">
@@ -54,7 +70,7 @@ const Employees = () => {
                     <h5>Action</h5>
                 </div>
             </section>
-            {employees.map((employee, index) => (
+            {list.map((employee, index) => (
                 <EmployeeRow key={employee.id} employee={employee} onButtonClick={onButtonClick}/>))}
             
         </div>
