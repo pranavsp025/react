@@ -78,7 +78,7 @@ const CEForm = ({ id }) => {
     const field = [
         { name: "name", placeholder: "Employee Name", label: "Employee Name", id: "1", ref: userRef },
         
-        { name: "joiningDate", placeholder: "Joining Date", label: "Joining Date", id: "2" },
+        { name: "joiningDate", placeholder: "Joining Date(auto)", label: "Joining Date", id: "2", disabled: !id },
         { name: "experience", placeholder: "Experience", label: "Experience", id: "5" },
         { name: "role", placeholder: "Choose Role", label: "Role", Component: CESelect, options: ["Choose Role", "UI", "UX", "DEVELOPER", "HR"], id: "8" },
         { name: "status", placeholder: "Choose Status", label: "Status", Component: CESelect, options: ["Choose Status", "Active", "Inactive", "Probation"], id: "4" },
