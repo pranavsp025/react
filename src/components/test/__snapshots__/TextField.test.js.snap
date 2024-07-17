@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Check if TextField works properly Check is snapshots is matched properly 1`] = `
+<DocumentFragment>
+  <span>
+    <label
+      for="uname"
+    />
+    <input
+      data-testid="textField-test-id"
+      placeholder="placeholder"
+      style="border-color: #03aeee;"
+      value="value"
+    />
+  </span>
+</DocumentFragment>
+`;

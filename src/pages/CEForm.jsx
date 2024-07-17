@@ -1,33 +1,32 @@
 import { useState, useRef, useEffect } from "react";
-import { useNavigate, useOutletContext } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import CESelect from "../components/CESelect";
 import CEButton from "../components/CEButton";
 import CETextField from "../components/CETextField";
-import { actionTypes } from "../useReducer";
 import { useDispatch, useSelector } from "react-redux";
-import { addEmployee, updateEmployee } from "../store/employeeReducer";
+import { useAddEmployeeMutation, useGetEmployeeDetailsQuery, useUpdateEmployeeMutation } from "../api/employee.api";
 
-
-
-const CEForm = (props) => {
-    const [formData, setFormData] = useState({ name: '', id: '', joiningDate: '', role: '', status: '', experience: '', address: '' });
+const CEForm = ({ id }) => {
+    const [formData, setFormData] = useState({ name: '', email: '', password: '', joiningDate: '', role: '', department: '', status: '', experience: '', address: '', pincode: '' });
     const userRef = useRef(null);
-    // const { state, dispatch } = useOutletContext();
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const employees = useSelector((state)=> state.employees.employees)
+    const [addEmployee] = useAddEmployeeMutation();
+    const [updateEmployee] = useUpdateEmployeeMutation();
+    const { data: employeeDetails } = useGetEmployeeDetailsQuery(id, { skip: !id });
 
-
-    
     useEffect(() => {
         focusInput();
-        if (props.id) {
-            const employee = employees.find((e) => e.id === props.id);
-            if (employee) {
-                setFormData(employee);
-            }
+        if (id && employeeDetails) {
+            setFormData({
+                ...employeeDetails,
+                joiningDate:employeeDetails.createdAt.slice(0,10),
+                address: employeeDetails.address?.line1 || '',
+                pincode: employeeDetails.address?.pincode || '',
+                department: employeeDetails.department?.id || '',
+            });
         }
-    }, []);
+    }, [id, employeeDetails]);
 
     const focusInput = () => {
         if (userRef.current) {
@@ -43,32 +42,56 @@ const CEForm = (props) => {
         }));
     };
 
-    const onButtonClick = () => {
-        if (props.id) {
-            dispatch(updateEmployee(formData))
-        } else {
-            dispatch(addEmployee(formData))
-
-        }
-        navigate('/');
+    const getRandomStatus = () => {
+        const statuses = ["Active", "Inactive", "Probation"];
+        return statuses[Math.floor(Math.random() * statuses.length)];
     };
+    
+    const onButtonClick = async () => {
+        try {
+            if (id) {
+                await updateEmployee({ id, ...formData,
+                    experience: '1',
+                    age:20,
+                    address: { line1: formData.address, pincode: '2434' },
+                    department: { department_id: '2',department_name: 'HR' },
+                    
+                 }).unwrap();
+            } else {
+                await addEmployee({
+                    ...formData,
+                    status: getRandomStatus(),
+                    experience: '1',
+                    age:20,
+                    address: { line1: formData.address, pincode: '2434' },
+                    department: { id: '2' }
+                }).unwrap();
+            }
+            navigate('/employees/list');
+        } catch (error) {
+            console.error('Failed to save the employee: ', error);
+        }
+    };
+    
 
     const field = [
         { name: "name", placeholder: "Employee Name", label: "Employee Name", id: "1", ref: userRef },
+        { name: "email", placeholder: "Email", label: "Email", id: "10" },
+        { name: "password", placeholder: "Password", label: "Password", id: "11" },
         { name: "joiningDate", placeholder: "Joining Date", label: "Joining Date", id: "2" },
         { name: "experience", placeholder: "Experience", label: "Experience", id: "5" },
-        { name: "department", placeholder: "Choose Department", label: "Department", Component: CESelect, options: ["Choose Department", "HR", "Development", "Designer"], id: "3" },
-        { name: "role", placeholder: "Choose Role", label: "Role", Component: CESelect, options: ["Choose Role", "tester", "devops", "junior developer", "senior developer"], id: "8" },
+        { name: "role", placeholder: "Choose Role", label: "Role", Component: CESelect, options: ["Choose Role", "UI", "UX", "DEVELOPER", "HR"], id: "8" },
         { name: "status", placeholder: "Choose Status", label: "Status", Component: CESelect, options: ["Choose Status", "Active", "Inactive", "Probation"], id: "4" },
         { name: "address", placeholder: "Address", label: "Address", id: "6" },
-        { name: "id", placeholder: "Employee ID", label: props.id ? "Employee ID" : "", id: "7", disabled: !!props.id, hidden: !props.id },
+        { name: "pincode", placeholder: "Pincode", label: "Pincode", id: "12" },
+        { name: "id", placeholder: "Employee ID", label: id ? "Employee ID" : "", id: "7", disabled: !!id, hidden: !id },
     ];
 
     return (
         <section className="form">
-            <form className="empform" action="">
-                {field.map((field) => {
-                    return field.Component ? (
+            <form className="empform">
+                {field.map((field) => (
+                    field.Component ? (
                         <field.Component
                             key={field.id}
                             onSelect={(e) => handleChange({ target: { name: field.name, value: e.target.value } })}
@@ -89,8 +112,8 @@ const CEForm = (props) => {
                             disabled={field.disabled}
                             hidden={field.hidden}
                         />
-                    );
-                })}
+                    )
+                ))}
             </form>
             <CEButton onButtonClick={onButtonClick} formData={formData} />
         </section>

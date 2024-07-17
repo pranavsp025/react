@@ -1,21 +1,19 @@
-import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
-import employees from "../components/EmployeeRecords.json"
-import { useOutletContext } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useParams, Link } from "react-router-dom";
+import { useGetEmployeeDetailsQuery } from "../api/employee.api";
+import { useEffect } from "react";
 
 const EmployeeDetails = () => {
-   
-    
-    // const {state ,dispatch}=useOutletContext();
-    const employees = useSelector((state)=> state.employees.employees)
-    
     const { id } = useParams();
-    const employee = employees.find((e) => e.id === id);
-    let color='#d3f4be'
-    if(employee.status=='Probation') color='#f5ecb8'
-    else if(employee.status=='Inactive') color='#ffbfbf'
-  
+    const { data } = useGetEmployeeDetailsQuery(id);
+
+    useEffect(() => {
+        console.log(data)
+    }, [data]);
+
+    let color = '#d3f4be';
+    if (data?.status === 'Probation') color = '#f5ecb8';
+    else if (data?.status === 'Inactive') color = '#ffbfbf';
+
     return (
         <div className="CEmain">
             <section className="create top-row">
@@ -25,17 +23,20 @@ const EmployeeDetails = () => {
                     <span className="edit_span">Edit</span>
                 </Link>
             </section>
-            {employee ? (
+            {data ? (
                 <section className="create details_page">
-                    <div className="details_padding_bottom">Employee Name <br /><strong>{employee.name}</strong></div>
-                    <div className="details_padding_bottom">Joining Date <br /><strong>{employee.joiningDate}</strong></div>
-                    <div className="details_padding_bottom">Experience <br /><strong>{employee.experience}</strong></div>
-                    <div className="details_padding_bottom">Role <br /><strong>{employee.role}</strong></div>
-                    <div className="details_padding_bottom">Status <br /><strong  className="status_details" style={{backgroundColor:color}}>{employee.status}</strong></div>
+                    <div className="details_padding_bottom">Employee Name <br /><strong>{data.name}</strong></div>
+                    <div className="details_padding_bottom">Joining Date <br /><strong>{data.createdAt.slice(0,10)}</strong></div>
+                    <div className="details_padding_bottom">Experience <br /><strong>{data.experience}</strong></div>
+                    {/* <div className="details_padding_bottom">Updated Date <br /><strong>{data.updatedAt.slice(0,10)}</strong></div> */}
+
+                    <div className="details_padding_bottom">Role <br /><strong>{data.role}</strong></div>
+                    {/* <div className="details_padding_bottom">Status <br /><strong className="status_details" style={{ backgroundColor: color }}>{data.deletedAt}</strong></div> */}
+
+                    <div className="details_padding_bottom">Status <br /><strong className="status_details" style={{ backgroundColor: color }}>{data.status}</strong></div>
                     <hr /><hr /><hr /><hr /><hr />
-                    <div className="details_padding_top">Address <br /><strong>{employee.address}</strong></div>
-                    <div className="details_padding_top">Employee ID <br /><strong>{employee.id}</strong></div>
-                   
+                    <div className="details_padding_top">Address <br /><strong>{data.address.line1}</strong></div>
+                    <div className="details_padding_top">Employee ID <br /><strong>{data.id}</strong></div>
                 </section>
             ) : (
                 <section className="create details_page">
