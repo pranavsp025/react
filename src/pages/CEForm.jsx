@@ -13,6 +13,7 @@ const CEForm = ({ id }) => {
     const dispatch = useDispatch();
     const [addEmployee] = useAddEmployeeMutation();
     const [updateEmployee] = useUpdateEmployeeMutation();
+    const [errorMessage, setErrorMessage] = useState('');
     const { data: employeeDetails } = useGetEmployeeDetailsQuery(id, { skip: !id });
 
     useEffect(() => {
@@ -71,6 +72,9 @@ const CEForm = ({ id }) => {
             navigate('/employees/list');
         } catch (error) {
             console.error('Failed to save the employee: ', error);
+            // alert('Please enter all details: ', error)
+            setErrorMessage('Please enter all details.');
+
         }
     };
     
@@ -92,6 +96,13 @@ const CEForm = ({ id }) => {
 
     return (
         <section className="form">
+            <div>
+            {errorMessage && (
+                <div style={{ position: 'fixed', top: '10px', left: '40%', backgroundColor: 'red', color: 'white', textAlign: 'center', padding: '10px',width:'20%',borderRadius:'10px' }}>
+                    {errorMessage}
+                </div>
+            )}
+        </div>
             <form className="empform">
                 {field.map((field) => (
                     field.Component ? (
