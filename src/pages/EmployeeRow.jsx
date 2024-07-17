@@ -12,7 +12,11 @@ const EmployeeRow = ({ employee ,onButtonClick}) => {
   if(employee.status=='Probation') color='#f5ecb8'
   else if(employee.status=='Inactive') color='#ffbfbf'
 
-  
+  const getRandomStatus = () => {
+    const statuses = ["Active", "Inactive", "Probation"];
+    return statuses[Math.floor(Math.random() * statuses.length)];
+};
+
     return ( 
         <Link to={`/employees/details/${employee.id}`} className='detailsFetch row header-row'>
 

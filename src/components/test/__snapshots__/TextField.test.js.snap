@@ -2,14 +2,16 @@
 
 exports[`Check if TextField works properly Check is snapshots is matched properly 1`] = `
 <DocumentFragment>
-  <span>
+  <span
+    data-testid="textField-test-id"
+  >
     <label
       for="uname"
     />
     <input
-      data-testid="textField-test-id"
       placeholder="placeholder"
       style="border-color: #03aeee;"
+      type="type"
       value="value"
     />
   </span>

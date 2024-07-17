@@ -12,18 +12,26 @@ describe("Check if TextField works properly", () =>{
         expect(element).toBeTruthy()
     })
     
-    test("Check if text displayed properly",()=>{
+    test("Check if value displayed properly",()=>{
         const value="value";
         
-        const { getByText } = render(<TextField value={value}/>)
+        const { getByDisplayValue } = render(<TextField value={value}/>)
+        getByDisplayValue(value)
 
     })
-    test("Check if text displayed properly",()=>{
+    test("Check if label displayed properly",()=>{
+        const label="label";
+        
+        const { getByLabelText } = render(<TextField label={label}/>)
+
+
+    })
+    test("Check if placeholder displayed properly",()=>{
         const placeholder = "placeholder";
         
-        const { getByText } = render(<TextField placeholder={placeholder}/>)
+        const { getByPlaceholderText } = render(<TextField placeholder={placeholder}/>)
 
-        // getByText(placeholder)
+        getByPlaceholderText(placeholder)
 
     })
 
@@ -42,8 +50,9 @@ describe("Check if TextField works properly", () =>{
         const onChange = jest.fn();
         const value="value";
         const placeholder = "placeholder";
+        const type = "type";
 
-        const { asFragment } = render(<TextField value={value} placeholder={placeholder} onChange={onChange}/>);
+        const { asFragment } = render(<TextField value={value} type={type} placeholder={placeholder} onChange={onChange}/>);
 
         expect(asFragment()).toMatchSnapshot();
     })
