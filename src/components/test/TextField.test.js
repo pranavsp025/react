@@ -14,8 +14,10 @@ describe("Check if TextField works properly", () =>{
     
     test("Check if value displayed properly",()=>{
         const value="value";
+        const onChange = jest.fn();
+
         
-        const { getByDisplayValue } = render(<TextField value={value}/>)
+        const { getByDisplayValue } = render(<TextField value={value} onChange={onChange}/>)
         getByDisplayValue(value)
 
     })
@@ -41,7 +43,7 @@ describe("Check if TextField works properly", () =>{
         const {getByTestId} = render(<TextField onChange={onChange}/>);
         const element = getByTestId('textField-test-id');
 
-        fireEvent.click(element);
+        fireEvent.change(element);
 
         expect(onChange).toHaveBeenCalledTimes(0)
     })
