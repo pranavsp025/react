@@ -26,6 +26,7 @@ const EmployeeDetails = () => {
             {data ? (
                 <section className="create details_page">
                     <div className="details_padding_bottom">Employee Name <br /><strong>{data.name}</strong></div>
+                    
                     <div className="details_padding_bottom">Joining Date <br /><strong>{data.createdAt.slice(0,10)}</strong></div>
                     <div className="details_padding_bottom">Experience <br /><strong>{data.experience}</strong></div>
                     {/* <div className="details_padding_bottom">Updated Date <br /><strong>{data.updatedAt.slice(0,10)}</strong></div> */}
@@ -36,6 +37,10 @@ const EmployeeDetails = () => {
                     <div className="details_padding_bottom">Status <br /><strong className="status_details" style={{ backgroundColor: color }}>{data.status}</strong></div>
                     <hr /><hr /><hr /><hr /><hr />
                     <div className="details_padding_top">Address <br /><strong>{data.address.line1}</strong></div>
+                    <div className="details_padding_top">Pincode <br /><strong>{data.address.pincode}</strong></div>
+                    <div className="details_padding_top">Department ID<br /><strong>{data.department.id}</strong></div>
+                    <div className="details_padding_top">Email<br /><strong>{data.email}</strong></div>
+
                     <div className="details_padding_top">Employee ID <br /><strong>{data.id}</strong></div>
                 </section>
             ) : (

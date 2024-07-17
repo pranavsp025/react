@@ -12,9 +12,9 @@ const TextField = forwardRef((props,ref) => {
     // },[text,isError])
 
     return(
-        <span  data-testid="textField-test-id">
+        <span>
             <label htmlFor="uname" >{props.label}</label>
-            <input ref={ref} type={props.type} value={props.value} onChange={props.onChange}  style={{borderColor:props.isError ? 'Red':'#03aeee'}} placeholder={props.placeholder}/>
+            <input ref={ref}   data-testid="textField-test-id" type={props.type} value={props.value} onChange={props.onChange}  style={{borderColor:props.isError ? 'Red':'#03aeee'}} placeholder={props.placeholder}/>
         </span>
     )
 })

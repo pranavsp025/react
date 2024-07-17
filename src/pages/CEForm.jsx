@@ -21,6 +21,7 @@ const CEForm = ({ id }) => {
             setFormData({
                 ...employeeDetails,
                 joiningDate:employeeDetails.createdAt.slice(0,10),
+                status:employeeDetails.status,
                 address: employeeDetails.address?.line1 || '',
                 pincode: employeeDetails.address?.pincode || '',
                 department: employeeDetails.department?.id || '',
@@ -51,7 +52,7 @@ const CEForm = ({ id }) => {
         try {
             if (id) {
                 await updateEmployee({ id, ...formData,
-                    experience: '1',
+                    // experience: '1',
                     age:20,
                     address: { line1: formData.address, pincode: '2434' },
                     department: { department_id: '2',department_name: 'HR' },
@@ -60,8 +61,8 @@ const CEForm = ({ id }) => {
             } else {
                 await addEmployee({
                     ...formData,
-                    status: getRandomStatus(),
-                    experience: '1',
+                    // status: getRandomStatus(),
+                    // experience: '1',
                     age:20,
                     address: { line1: formData.address, pincode: '2434' },
                     department: { id: '2' }
@@ -76,15 +77,17 @@ const CEForm = ({ id }) => {
 
     const field = [
         { name: "name", placeholder: "Employee Name", label: "Employee Name", id: "1", ref: userRef },
-        { name: "email", placeholder: "Email", label: "Email", id: "10" },
-        { name: "password", placeholder: "Password", label: "Password", id: "11" },
+        
         { name: "joiningDate", placeholder: "Joining Date", label: "Joining Date", id: "2" },
         { name: "experience", placeholder: "Experience", label: "Experience", id: "5" },
         { name: "role", placeholder: "Choose Role", label: "Role", Component: CESelect, options: ["Choose Role", "UI", "UX", "DEVELOPER", "HR"], id: "8" },
         { name: "status", placeholder: "Choose Status", label: "Status", Component: CESelect, options: ["Choose Status", "Active", "Inactive", "Probation"], id: "4" },
         { name: "address", placeholder: "Address", label: "Address", id: "6" },
         { name: "pincode", placeholder: "Pincode", label: "Pincode", id: "12" },
+        { name: "email", placeholder: "Email", label: "Email", id: "10" },
+        { name: "password", placeholder: "Password", label: id ? "" : "Password", id: "11", hidden: id },
         { name: "id", placeholder: "Employee ID", label: id ? "Employee ID" : "", id: "7", disabled: !!id, hidden: !id },
+
     ];
 
     return (

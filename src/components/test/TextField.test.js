@@ -43,9 +43,9 @@ describe("Check if TextField works properly", () =>{
         const {getByTestId} = render(<TextField onChange={onChange}/>);
         const element = getByTestId('textField-test-id');
 
-        fireEvent.change(element);
+        fireEvent.change(element,{target:{value:'sample'}});
 
-        expect(onChange).toHaveBeenCalledTimes(0)
+        expect(onChange).toHaveBeenCalledTimes(1)
     })
 
     test("Check is snapshots is matched properly",() => {
